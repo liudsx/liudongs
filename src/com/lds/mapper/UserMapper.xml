@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lds.mapper.UserMapper">
+	<select id="tolist" resultType="com.lds.vo.UserInfo">
+		select * from userinfo
+	</select>
+	
+	<select id="checkuser" resultType="com.lds.vo.UserInfo">
+		select * from userinfo where uname='${uname}' and pasd ='${pasd}'
+	</select>
+	<insert id="saveadd" parameterType="com.lds.vo.UserInfo">
+		insert into userinfo values(seq_usid.nextval,'${uname}','${imname}','${impath}','${imbm}','${pasd}')
+	</insert>
+</mapper>
